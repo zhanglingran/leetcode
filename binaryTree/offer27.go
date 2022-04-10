@@ -49,3 +49,33 @@ func mirrorTree2(root *TreeNode) *TreeNode {
 
 	return root
 }
+
+/*
+	非递归的方式 : 使用队列解决问题
+*/
+func mirrorTreeWithoutRecursion(root *TreeNode) *TreeNode {
+
+	// 特判特殊条件
+	if root == nil || (root.Left == nil && root.Right == nil) {
+		return root
+	}
+
+	queue := make([]*TreeNode, 0, 0)
+	queue = append(queue, root)
+	for len(queue) > 0 {
+		top := queue[0]
+		left := top.Left
+		right := top.Right
+		if left != nil {
+			queue = append(queue, left)
+		}
+		if right != nil {
+			queue = append(queue, right)
+		}
+		queue = queue[1:]
+		top.Left = right
+		top.Right = left
+	}
+
+	return root
+}
