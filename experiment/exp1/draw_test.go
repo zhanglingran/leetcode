@@ -18,7 +18,7 @@ func TestPlotPicture(t *testing.T) {
 		{
 			name: "case1",
 			args: args{
-				count:    100,
+				count:    300,
 				name:     "picture/case1.png",
 				f:        ConvexHullForce,
 				needSort: true,
@@ -27,7 +27,7 @@ func TestPlotPicture(t *testing.T) {
 		{
 			name: "case2",
 			args: args{
-				count:    100,
+				count:    300,
 				name:     "picture/case2.png",
 				f:        ConvexHullGrahamScan,
 				needSort: false,
@@ -36,7 +36,7 @@ func TestPlotPicture(t *testing.T) {
 		{
 			name: "case3",
 			args: args{
-				count:    100,
+				count:    300,
 				name:     "picture/case3.png",
 				f:        ConvexHullDivideAndConquer,
 				needSort: false,
