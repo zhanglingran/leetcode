@@ -1,4 +1,4 @@
-package exp4
+package Lab4
 
 import (
 	"math/rand"

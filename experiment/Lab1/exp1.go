@@ -1,4 +1,4 @@
-package exp1
+package Lab1
 
 import (
 	"math"

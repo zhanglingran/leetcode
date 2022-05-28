@@ -1,17 +1,41 @@
 package main
 
-import (
-	"fmt"
-)
+/**
+ *
+ * @param a int整型一维数组
+ * @param n int整型
+ * @param K int整型
+ * @return int整型
+ */
+func findKth(a []int, n int, K int) int {
+	// write code here
 
-func main() {
-
-	fmt.Println(cell(float64(2) / 3))
+	K -= 1
+	for true {
+		m, val := partition(a)
+		if m == K {
+			return val
+		} else if m > K {
+			a = a[:m]
+		} else {
+			a = a[m+1:]
+			K -= (m + 1)
+		}
+	}
+	return -1
 }
 
-func cell(a float64) int {
-	if a > float64(int(a)) {
-		return int(a) + 1
+func partition(a []int) (int, int) {
+	n := len(a)
+	head := 0
+	pivot := a[0]
+	for i := 0; i < n-1; i++ {
+		if a[i] > pivot {
+			a[head] = a[i]
+			head++
+		}
 	}
-	return int(a)
+
+	a[n-1], a[head] = a[head], a[n-1]
+	return head, a[head]
 }
